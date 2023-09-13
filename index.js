@@ -15,17 +15,16 @@ app.listen(PORT, console.log(
 
 
 
-    const fetchUrl = async (url,type)=> {
-        const data = await fetch(type+"://"+url)
+    const fetchUrl = async (url)=> {
+        const data = await fetch(url)
         const html = await data.text()
         return html;
     }
-app.get('/:url/:type',async (req,res)=>{
+app.post('/',async (req,res)=>{
     try {
-        const url = req.params.url
-        const type = req.params.type
+        const url = req.body.url
         console.log(url)
-        const html = await fetchUrl(url,type)
+        const html = await fetchUrl(url)
         res.json({html})  
     } catch (error) {
         res.json({html : "حدث خطأ ما" })
