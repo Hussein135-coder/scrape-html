@@ -24,10 +24,12 @@ app.post('/',async (req,res)=>{
     try {
         const url = req.body.url
         console.log(url)
-        const html = await fetchUrl(url)
+        const data = await fetchUrl(url)
+	const html = data.text();
+	console.log(html);
         res.json({html})  
     } catch (error) {
-        res.json({html : "حدث خطأ ما" })
+        res.json({html : error.message })
     }
        
 })
