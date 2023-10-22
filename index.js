@@ -21,15 +21,15 @@ app.listen(PORT, console.log(
         return html;
     }
 app.post('/',async (req,res)=>{
-    try {
         const url = req.body.url
+    try {
         console.log(url)
         const html = await fetchUrl(url)
 
 	console.log(html);
         res.json({html,url})  
     } catch (error) {
-        res.json({html : error.message })
+        res.json({html : error.message,url})
     }
        
 })
