@@ -24,8 +24,8 @@ app.post('/',async (req,res)=>{
     try {
         const url = req.body.url
         console.log(url)
-        const data = await fetchUrl(url)
-	const html = await data.text();
+        const html = await fetchUrl(url)
+
 	console.log(html);
         res.json({html,url})  
     } catch (error) {
