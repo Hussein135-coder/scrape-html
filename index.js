@@ -29,7 +29,7 @@ app.post('/',async (req,res)=>{
 	console.log(html);
         res.json({html,url})  
     } catch (error) {
-        res.json({html : error.message,url})
+        res.json({html : error.message,url:url})
     }
        
 })
