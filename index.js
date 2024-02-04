@@ -1,6 +1,6 @@
 const express = require('express')
 const cors = require('cors');
-
+const axios = require('axios');
 const app = express()
 
 app.use(
@@ -16,8 +16,8 @@ app.listen(PORT, console.log(
 
 
     const fetchUrl = async (url)=> {
-        const data = await fetch(url)
-        const html = await data.text()
+        const data = await axios.get(url)
+        const html = await data.data
         return html;
     }
 app.post('/',async (req,res)=>{
